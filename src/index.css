@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #111111;
+    background: #ffffff;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #006666;
+  }
+}
+
+/* ─── Service cards ─── */
+
+.service-card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.service-card-pill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border: 1px solid white;
+  border-radius: 999px;
+  padding: 10px 24px;
+  background: transparent;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.service-card-image:hover .service-card-pill {
+  opacity: 1;
+}
+
+/* ─── Accordion ─── */
+
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content-inner {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.open .accordion-content-inner {
+  padding-bottom: 32px;
+}
+
+.accordion-icon {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-icon.open {
+  transform: rotate(45deg);
+}
+
+/* ─── Scroll-driven entrance animations ─── */
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-heading {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-fade {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-stagger {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 0.1s);
+}
+
+.animate.visible,
+.animate-heading.visible,
+.animate-fade.visible,
+.animate-scale.visible,
+.animate-stagger.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero text — animeras vid sidladdning */
+@keyframes styr-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: styr-fade-up 0.8s ease-out forwards;
+}
+
+.hero-d0 { animation-delay: 0.2s; }
+.hero-d1 { animation-delay: 0.35s; }
+.hero-d2 { animation-delay: 0.5s; }
+.hero-d3 { animation-delay: 0.65s; }
+
+/* Respekterar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate,
+  .animate-heading,
+  .animate-fade,
+  .animate-scale,
+  .animate-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-animate {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
