@@ -65,6 +65,72 @@ export default function Home() {
         .underline-link:hover::after {
           clip-path: inset(0 0% 0 100%);
         }
+
+        @media (max-width: 768px) {
+          .hero-content {
+            bottom: auto !important;
+            top: 50% !important;
+            transform: translateY(-45%) !important;
+            left: 6% !important;
+            right: 6% !important;
+          }
+
+          .tjanster-heading {
+            font-size: clamp(2.5rem, 13vw, 5rem) !important;
+            margin-bottom: 32px !important;
+          }
+
+          .om-section {
+            grid-template-columns: 1fr !important;
+            padding-top: 56px !important;
+            padding-bottom: 56px !important;
+          }
+
+          .om-text-col {
+            padding-right: 0 !important;
+            order: 1;
+          }
+
+          .om-image-col {
+            order: 2;
+            padding: 32px 0 0 0 !important;
+            justify-content: flex-start !important;
+          }
+
+          .om-image-col img {
+            max-width: 100% !important;
+            width: 100% !important;
+            aspect-ratio: 4/3 !important;
+            border-radius: 12px !important;
+          }
+
+          .om-heading {
+            font-size: clamp(3.5rem, 20vw, 120px) !important;
+            margin-bottom: 32px !important;
+          }
+
+          .case-section {
+            padding: 72px 6% !important;
+          }
+
+          .case-grid {
+            grid-template-columns: 1fr !important;
+            gap: 28px !important;
+          }
+
+          .case-image-col {
+            order: 1;
+          }
+
+          .case-text-col {
+            order: 2;
+          }
+
+          .tjanster-section {
+            padding-top: 56px !important;
+            padding-bottom: 56px !important;
+          }
+        }
       `}</style>
       <Helmet>
         <title>STYR – Digital Partner</title>
@@ -115,6 +181,7 @@ export default function Home() {
 
             {/* hero-content: absolutely positioned inside the image */}
             <div
+              className="hero-content"
               style={{
                 position: 'absolute',
                 bottom: '8%',
@@ -174,6 +241,7 @@ export default function Home() {
         <section
           id="om"
           ref={omRef}
+          className="om-section"
           style={{
             background: '#f5f0e8',
             display: 'grid',
@@ -187,6 +255,7 @@ export default function Home() {
         >
           {/* Vänster textkolumn */}
           <div
+            className="om-text-col"
             style={{
               paddingRight: '6%',
               display: 'flex',
@@ -194,7 +263,7 @@ export default function Home() {
             }}
           >
             <h2
-              className="font-heading animate-heading"
+              className="font-heading animate-heading om-heading"
               style={{
                 fontSize: '120px',
                 fontWeight: 600,
@@ -240,7 +309,7 @@ export default function Home() {
           </div>
 
           {/* Höger kolumn – profilbild med padding och rundade hörn */}
-          <div className="animate-scale" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 48px 48px 24px' }}>
+          <div className="animate-scale om-image-col" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 48px 48px 24px' }}>
             <img
               src={profilbild}
               alt="Wilma Deleryd, grundare av STYR"
@@ -262,10 +331,10 @@ export default function Home() {
         <div style={{ background: '#f5f0e8' }}>
 
         {/* Teal block: accordion + löpande + signatur */}
-        <section id="tjanster" style={{ background: '#004444', paddingLeft: '8%', paddingRight: '8%', paddingTop: '80px', paddingBottom: '80px' }}>
+        <section id="tjanster" className="tjanster-section" style={{ background: '#004444', paddingLeft: '8%', paddingRight: '8%', paddingTop: '80px', paddingBottom: '80px' }}>
           <h2
             ref={servicesTitleRef}
-            className="font-heading animate-heading"
+            className="font-heading animate-heading tjanster-heading"
             style={{
               fontSize: '120px',
               fontWeight: 600,
@@ -283,11 +352,11 @@ export default function Home() {
         </section>
 
         {/* Case preview */}
-        <section ref={caseRef} style={{ padding: '120px 8%' }}>
+        <section ref={caseRef} className="case-section" style={{ padding: '120px 8%' }}>
           <p className="label mb-10 animate">SENASTE PROJEKTET</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '55fr 45fr', gap: '64px', alignItems: 'center' }}>
+          <div className="case-grid" style={{ display: 'grid', gridTemplateColumns: '55fr 45fr', gap: '64px', alignItems: 'center' }}>
             <div
-              className="animate-scale"
+              className="animate-scale case-image-col"
               style={{
                 width: '100%',
                 aspectRatio: '4/3',
@@ -303,7 +372,7 @@ export default function Home() {
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '0% 8%', display: 'block' }}
               />
             </div>
-            <div className="animate" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', transitionDelay: '0.2s' }}>
+            <div className="animate case-text-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', transitionDelay: '0.2s' }}>
               <h2 className="font-heading font-semibold text-brand-text leading-tight" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', marginBottom: '20px' }}>
                 Mila Workspace
               </h2>
