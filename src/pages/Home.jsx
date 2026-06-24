@@ -95,8 +95,8 @@ export default function Home() {
             className="hero-scroll"
             style={{
               position: 'relative',
-              height: '100vh',
-              backgroundImage: 'url(/hero-bg.jpg)',
+              height: '100%',
+              backgroundImage: 'url(/hero-bg.webp)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',

@@ -149,19 +149,6 @@ export default function Contact() {
             >
               Kontakt.
             </h1>
-            <p
-              className="font-body animate-fade"
-              style={{
-                fontSize: '17px',
-                color: 'rgba(255,255,255,0.65)',
-                lineHeight: 1.75,
-                maxWidth: '340px',
-                transitionDelay: '0.2s',
-              }}
-            >
-              Lämna namn och telefonnummer så ringer vi upp er. Vill ni berätta mer om vad ni behöver hjälp med är det välkommet – men inte nödvändigt.
-            </p>
-
             <div
               className="animate-fade"
               style={{
