@@ -67,6 +67,15 @@ export default function Home() {
         }
 
         @media (max-width: 768px) {
+          .hero-sticky {
+            height: 100dvh !important;
+          }
+
+          .hero-wrapper {
+            width: 100% !important;
+            height: 100dvh !important;
+          }
+
           .hero-content {
             bottom: auto !important;
             top: 50% !important;
@@ -100,7 +109,9 @@ export default function Home() {
           .om-image-col img {
             max-width: 100% !important;
             width: 100% !important;
-            aspect-ratio: 4/3 !important;
+            height: auto !important;
+            aspect-ratio: auto !important;
+            object-fit: contain !important;
             border-radius: 12px !important;
           }
 
@@ -145,10 +156,11 @@ export default function Home() {
 
       {/* Scroll driver: 200vh = 100vh hero + 100vh sticky window (80vh shrink + 20vh hold at min scale before Om enters) */}
       <div style={{ height: '200vh', position: 'relative' }}>
-        <div style={{ position: 'sticky', top: 0, height: '100vh', zIndex: 10 }}>
+        <div className="hero-sticky" style={{ position: 'sticky', top: 0, height: '100vh', zIndex: 10 }}>
 
           {/* hero-wrapper: cream bg shows around the scaled hero card */}
           <div
+            className="hero-wrapper"
             style={{
               background: '#f5f0e8',
               width: '100vw',
