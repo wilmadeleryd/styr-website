@@ -67,13 +67,24 @@ export default function Home() {
         }
 
         @media (max-width: 768px) {
+          /* Disable scroll-shrink animation on mobile — full-screen static hero */
+          .hero-outer {
+            height: 100dvh !important;
+          }
+
           .hero-sticky {
+            position: relative !important;
             height: 100dvh !important;
           }
 
           .hero-wrapper {
             width: 100% !important;
             height: 100dvh !important;
+          }
+
+          .hero-scroll {
+            transform: none !important;
+            border-radius: 0 !important;
           }
 
           .hero-content {
@@ -155,7 +166,7 @@ export default function Home() {
       </Helmet>
 
       {/* Scroll driver: 200vh = 100vh hero + 100vh sticky window (80vh shrink + 20vh hold at min scale before Om enters) */}
-      <div style={{ height: '200vh', position: 'relative' }}>
+      <div className="hero-outer" style={{ height: '200vh', position: 'relative' }}>
         <div className="hero-sticky" style={{ position: 'sticky', top: 0, height: '100vh', zIndex: 10 }}>
 
           {/* hero-wrapper: cream bg shows around the scaled hero card */}
