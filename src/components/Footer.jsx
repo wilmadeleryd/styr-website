@@ -80,7 +80,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <p style={{ marginTop: '32px', color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif' }}>
-        © 2025 STYR
+        © 2025 STYR Media
       </p>
 
     </footer>
