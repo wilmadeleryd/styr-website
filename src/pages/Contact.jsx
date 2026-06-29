@@ -182,8 +182,8 @@ export default function Contact() {
                 src={profilbild}
                 alt="Wilma Deleryd"
                 style={{
-                  width: '88px',
-                  height: '88px',
+                  width: '120px',
+                  height: '120px',
                   objectFit: 'cover',
                   objectPosition: 'center 10%',
                   borderRadius: '8px',
