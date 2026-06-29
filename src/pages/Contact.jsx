@@ -220,7 +220,7 @@ export default function Contact() {
           <div ref={rightRef} style={{ paddingTop: '8px' }}>
             {status === 'sent' && (
               <div
-                onClick={() => setStatus('idle')}
+                onClick={() => { setStatus('idle'); setForm({ namn: '', telefon: '', foretag: '', mail: '', meddelande: '' }) }}
                 style={{
                   position: 'fixed',
                   top: 0, left: 0, right: 0, bottom: 0,
@@ -251,7 +251,7 @@ export default function Contact() {
                     Vi återkommer inom kort.
                   </p>
                   <button
-                    onClick={() => setStatus('idle')}
+                    onClick={() => { setStatus('idle'); setForm({ namn: '', telefon: '', foretag: '', mail: '', meddelande: '' }) }}
                     className="font-body"
                     style={{
                       background: 'transparent',
