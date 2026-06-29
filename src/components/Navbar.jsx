@@ -182,7 +182,7 @@ export default function Navbar() {
           transform: menuOpen ? 'translateY(0)' : 'translateY(-100%)',
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? 'auto' : 'none',
-          transition: 'transform 0.3s ease, opacity 0.3s ease',
+          transition: 'transform 0.5s ease, opacity 0.4s ease',
         }}
       >
         {/* Top bar — logo + close replicated inside overlay */}
