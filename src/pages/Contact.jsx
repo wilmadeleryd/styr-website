@@ -16,7 +16,7 @@ const labelBase = {
 function Field({ id, label, optional, error, children }) {
   return (
     <div>
-      <label htmlFor={id} style={{ ...labelBase, color: error ? 'rgba(255,120,120,0.9)' : 'rgba(153,210,210,0.75)' }}>
+      <label htmlFor={id} style={{ ...labelBase, color: error ? 'rgba(255,120,120,0.9)' : '#ffffff' }}>
         {label}
         {optional && (
           <span style={{ fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: '11px', opacity: 0.55, marginLeft: '6px' }}>
@@ -76,7 +76,7 @@ export default function Contact() {
     width: '100%',
     background: 'transparent',
     border: 'none',
-    borderBottom: '1px solid rgba(153,210,210,0.35)',
+    borderBottom: '1px solid rgba(255,255,255,0.35)',
     paddingBottom: '14px',
     paddingTop: '8px',
     color: 'white',
@@ -90,14 +90,14 @@ export default function Contact() {
 
   const focusHandler = e => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.85)' }
   const blurHandler = (error) => e => {
-    e.target.style.borderBottomColor = error ? 'rgba(255,120,120,0.7)' : 'rgba(153,210,210,0.35)'
+    e.target.style.borderBottomColor = error ? 'rgba(255,120,120,0.7)' : 'rgba(255,255,255,0.35)'
   }
 
   return (
     <>
       <style>{`
         .contact-field::placeholder {
-          color: rgba(255,255,255,0.25);
+          color: rgba(255,255,255,0.45);
           font-style: italic;
         }
         .contact-field:-webkit-autofill,
