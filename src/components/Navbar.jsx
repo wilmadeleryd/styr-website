@@ -53,7 +53,7 @@ export default function Navbar() {
 
   const headerStyle = menuOpen
     ? {
-        backgroundColor: '#f5f0e8',
+        backgroundColor: '#004444',
         backdropFilter: 'none',
         WebkitBackdropFilter: 'none',
         borderBottom: 'none',
@@ -78,7 +78,7 @@ export default function Navbar() {
     fontFamily: '"Playfair Display", Georgia, serif',
     fontSize: '2.25rem',
     fontWeight: 600,
-    color: '#004444',
+    color: '#f5f0e8',
     textDecoration: 'none',
     cursor: 'pointer',
     lineHeight: 1.2,
@@ -162,7 +162,7 @@ export default function Navbar() {
             <span
               key={i}
               className={`block w-5 h-px transition-all duration-200 ${extra}`}
-              style={{ background: menuOpen ? '#004444' : (transparent ? 'white' : '#111111') }}
+              style={{ background: menuOpen ? '#f5f0e8' : (transparent ? 'white' : '#111111') }}
             />
           ))}
         </button>
@@ -175,7 +175,7 @@ export default function Navbar() {
         style={{
           position: 'fixed',
           inset: 0,
-          backgroundColor: '#f5f0e8',
+          backgroundColor: '#004444',
           display: 'flex',
           flexDirection: 'column',
           zIndex: 9999,
@@ -187,7 +187,7 @@ export default function Navbar() {
         {/* Top bar — logo + close replicated inside overlay */}
         <div className="px-6 flex items-center justify-between h-16 shrink-0">
           <Link to="/" aria-label="STYR startsida" onClick={() => setMenuOpen(false)}>
-            <img src="/logo-teal-trimmed.png" alt="STYR." style={{ height: '28px', width: 'auto', display: 'block' }} />
+            <img src="/logo-white-trimmed.png" alt="STYR." style={{ height: '28px', width: 'auto', display: 'block' }} />
           </Link>
           {/* Close button */}
           <button
@@ -196,8 +196,8 @@ export default function Navbar() {
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <line x1="2" y1="2" x2="18" y2="18" stroke="#004444" strokeWidth="1.5" strokeLinecap="round" />
-              <line x1="18" y1="2" x2="2" y2="18" stroke="#004444" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="2" y1="2" x2="18" y2="18" stroke="#f5f0e8" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="18" y1="2" x2="2" y2="18" stroke="#f5f0e8" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -207,19 +207,12 @@ export default function Navbar() {
           <a href="/#tjanster" onClick={scrollToTjanster} style={mobileLinkStyle}>
             Tjänster
           </a>
+          <NavLink to="/kontakt" style={mobileLinkStyle} onClick={() => setMenuOpen(false)}>
+            Kontakt
+          </NavLink>
           <a href="/#om" onClick={scrollToOm} style={mobileLinkStyle}>
             Om
           </a>
-          {navLinks.map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              style={mobileLinkStyle}
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </NavLink>
-          ))}
         </div>
       </nav>
     </header>
