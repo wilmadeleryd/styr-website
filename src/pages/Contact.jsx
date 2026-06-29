@@ -126,11 +126,9 @@ export default function Contact() {
         }
         .success-card {
           background: #f5f0e8;
-          border-radius: 16px;
-          padding: 56px 48px;
+          padding: 64px 56px;
           max-width: 480px;
           width: 100%;
-          text-align: center;
           animation: cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @keyframes overlayIn {
@@ -138,8 +136,8 @@ export default function Contact() {
           to   { opacity: 1; }
         }
         @keyframes cardIn {
-          from { opacity: 0; transform: translateY(20px) scale(0.97); }
-          to   { opacity: 1; transform: translateY(0)    scale(1);    }
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0);    }
         }
         @media (max-width: 768px) {
           .success-card { padding: 40px 28px; }
@@ -220,33 +218,29 @@ export default function Contact() {
             {status === 'sent' && (
               <div className="success-overlay" onClick={() => setStatus('idle')}>
                 <div className="success-card" onClick={e => e.stopPropagation()}>
-                  <div style={{ marginBottom: '28px' }}>
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style={{ margin: '0 auto 20px' }}>
-                      <circle cx="20" cy="20" r="19" stroke="#004444" strokeWidth="1.5" />
-                      <path d="M12 20.5l5.5 5.5 10.5-11" stroke="#004444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <p className="font-heading" style={{ fontSize: 'clamp(1.4rem, 3vw, 1.75rem)', color: '#004444', fontWeight: 600, lineHeight: 1.3, margin: 0 }}>
-                      Tack för att ni hörde av er.
-                    </p>
-                  </div>
-                  <p className="font-body" style={{ fontSize: '1rem', color: '#555', lineHeight: 1.7, margin: '0 0 36px' }}>
+                  <p className="font-heading" style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)', color: '#004444', fontWeight: 600, lineHeight: 1.2, margin: '0 0 20px' }}>
+                    Roligt att ni hörde av er!
+                  </p>
+                  <p className="font-body" style={{ fontSize: '1rem', color: '#004444', fontWeight: 400, lineHeight: 1.7, margin: '0 0 40px' }}>
                     Vi återkommer inom kort.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
                     className="font-body"
                     style={{
-                      background: '#004444',
-                      color: '#f5f0e8',
-                      border: 'none',
-                      borderRadius: '8px',
-                      padding: '12px 32px',
-                      fontSize: '0.9rem',
-                      letterSpacing: '0.05em',
+                      background: 'transparent',
+                      color: '#004444',
+                      border: '1px solid #004444',
+                      borderRadius: 0,
+                      padding: '10px 28px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
                       cursor: 'pointer',
                       transition: 'opacity 0.15s ease',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
+                    onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
                   >
                     Stäng
