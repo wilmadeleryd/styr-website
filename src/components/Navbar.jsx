@@ -179,9 +179,10 @@ export default function Navbar() {
           display: 'flex',
           flexDirection: 'column',
           zIndex: 9999,
+          transform: menuOpen ? 'translateY(0)' : 'translateY(-100%)',
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? 'auto' : 'none',
-          transition: 'opacity 0.25s ease',
+          transition: 'transform 0.3s ease, opacity 0.3s ease',
         }}
       >
         {/* Top bar — logo + close replicated inside overlay */}
