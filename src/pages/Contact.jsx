@@ -111,26 +111,6 @@ export default function Contact() {
             gap: 56px;
           }
         }
-        .success-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 30, 30, 0.55);
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 200;
-          padding: 24px;
-          animation: overlayIn 0.3s ease;
-        }
-        .success-card {
-          background: #f5f0e8;
-          padding: 64px 56px;
-          max-width: 480px;
-          width: 100%;
-          animation: cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
         @keyframes overlayIn {
           from { opacity: 0; }
           to   { opacity: 1; }
@@ -138,9 +118,6 @@ export default function Contact() {
         @keyframes cardIn {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0);    }
-        }
-        @media (max-width: 768px) {
-          .success-card { padding: 40px 28px; }
         }
       `}</style>
 
@@ -216,9 +193,31 @@ export default function Contact() {
           {/* Höger: formulär */}
           <div ref={rightRef} style={{ paddingTop: '8px' }}>
             {status === 'sent' && (
-              <div className="success-overlay" onClick={() => setStatus('idle')}>
-                <div className="success-card" onClick={e => e.stopPropagation()}>
-                  <p className="font-heading" style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)', color: '#004444', fontWeight: 600, lineHeight: 1.2, margin: '0 0 20px' }}>
+              <div
+                onClick={() => setStatus('idle')}
+                style={{
+                  position: 'fixed',
+                  top: 0, left: 0, right: 0, bottom: 0,
+                  background: 'rgba(0, 20, 20, 0.6)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 200,
+                  padding: '24px',
+                  animation: 'overlayIn 0.3s ease',
+                }}
+              >
+                <div
+                  onClick={e => e.stopPropagation()}
+                  style={{
+                    background: '#f5f0e8',
+                    padding: '56px 48px',
+                    maxWidth: '440px',
+                    width: '100%',
+                    animation: 'cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                >
+                  <p className="font-heading" style={{ fontSize: '1.75rem', color: '#004444', fontWeight: 600, lineHeight: 1.2, margin: '0 0 20px' }}>
                     Roligt att ni hörde av er!
                   </p>
                   <p className="font-body" style={{ fontSize: '1rem', color: '#004444', fontWeight: 400, lineHeight: 1.7, margin: '0 0 40px' }}>
