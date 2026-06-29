@@ -182,16 +182,16 @@ export default function Contact() {
                 src={profilbild}
                 alt="Wilma Deleryd"
                 style={{
-                  width: '64px',
-                  height: '64px',
+                  width: '88px',
+                  height: '88px',
                   objectFit: 'cover',
                   objectPosition: 'center 10%',
                   borderRadius: '8px',
                   flexShrink: 0,
                 }}
               />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <span className="font-body" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '14px', fontWeight: 500 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', paddingLeft: '8px' }}>
+                <span className="font-body" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '16px', fontWeight: 500 }}>
                   Wilma Deleryd
                 </span>
                 <a
