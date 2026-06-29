@@ -86,7 +86,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50" style={headerStyle}>
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="px-6 md:px-[8%] flex items-center justify-between h-16">
 
         <Link to="/" className="flex items-center" aria-label="STYR startsida">
           <img
