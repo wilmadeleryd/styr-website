@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import profilbild from '../assets/Profilbild-Wilma-Deleryd.jpg'
 
 const labelBase = {
   display: 'block',
@@ -173,28 +174,45 @@ export default function Contact() {
                 borderTop: '1px solid rgba(153,210,210,0.2)',
                 transitionDelay: '0.35s',
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '10px',
+                alignItems: 'center',
+                gap: '20px',
               }}
             >
-              <a
-                href="mailto:wilma@styrmedia.se"
-                className="font-body"
-                style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.15s ease' }}
-                onMouseEnter={e => { e.currentTarget.style.color = 'white' }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
-              >
-                wilma@styrmedia.se
-              </a>
-              <a
-                href="tel:0702277506"
-                className="font-body"
-                style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.15s ease' }}
-                onMouseEnter={e => { e.currentTarget.style.color = 'white' }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
-              >
-                070-227 75 06
-              </a>
+              <img
+                src={profilbild}
+                alt="Wilma Deleryd"
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  objectFit: 'cover',
+                  objectPosition: 'center 10%',
+                  borderRadius: '8px',
+                  flexShrink: 0,
+                }}
+              />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <span className="font-body" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '14px', fontWeight: 500 }}>
+                  Wilma Deleryd
+                </span>
+                <a
+                  href="mailto:wilma@styrmedia.se"
+                  className="font-body"
+                  style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.15s ease' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'white' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                >
+                  wilma@styrmedia.se
+                </a>
+                <a
+                  href="tel:0702277506"
+                  className="font-body"
+                  style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.15s ease' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'white' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+                >
+                  070-227 75 06
+                </a>
+              </div>
             </div>
           </div>
 
