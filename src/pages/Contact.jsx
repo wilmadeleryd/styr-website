@@ -111,6 +111,39 @@ export default function Contact() {
             gap: 56px;
           }
         }
+        .success-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 30, 30, 0.55);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 200;
+          padding: 24px;
+          animation: overlayIn 0.3s ease;
+        }
+        .success-card {
+          background: #f5f0e8;
+          border-radius: 16px;
+          padding: 56px 48px;
+          max-width: 480px;
+          width: 100%;
+          text-align: center;
+          animation: cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes overlayIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes cardIn {
+          from { opacity: 0; transform: translateY(20px) scale(0.97); }
+          to   { opacity: 1; transform: translateY(0)    scale(1);    }
+        }
+        @media (max-width: 768px) {
+          .success-card { padding: 40px 28px; }
+        }
       `}</style>
 
       <Helmet>
@@ -184,16 +217,44 @@ export default function Contact() {
 
           {/* Höger: formulär */}
           <div ref={rightRef} style={{ paddingTop: '8px' }}>
-            {status === 'sent' ? (
-              <div style={{ paddingTop: '16px' }}>
-                <p
-                  className="font-heading"
-                  style={{ fontSize: '32px', color: 'white', fontWeight: 500, lineHeight: 1.3 }}
-                >
-                  Tack för att ni hörde av er. Vi återkommer inom kort.
-                </p>
+            {status === 'sent' && (
+              <div className="success-overlay" onClick={() => setStatus('idle')}>
+                <div className="success-card" onClick={e => e.stopPropagation()}>
+                  <div style={{ marginBottom: '28px' }}>
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style={{ margin: '0 auto 20px' }}>
+                      <circle cx="20" cy="20" r="19" stroke="#004444" strokeWidth="1.5" />
+                      <path d="M12 20.5l5.5 5.5 10.5-11" stroke="#004444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <p className="font-heading" style={{ fontSize: 'clamp(1.4rem, 3vw, 1.75rem)', color: '#004444', fontWeight: 600, lineHeight: 1.3, margin: 0 }}>
+                      Tack för att ni hörde av er.
+                    </p>
+                  </div>
+                  <p className="font-body" style={{ fontSize: '1rem', color: '#555', lineHeight: 1.7, margin: '0 0 36px' }}>
+                    Vi återkommer inom kort.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="font-body"
+                    style={{
+                      background: '#004444',
+                      color: '#f5f0e8',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '12px 32px',
+                      fontSize: '0.9rem',
+                      letterSpacing: '0.05em',
+                      cursor: 'pointer',
+                      transition: 'opacity 0.15s ease',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
+                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                  >
+                    Stäng
+                  </button>
+                </div>
               </div>
-            ) : (
+            )}
+            {status !== 'sent' && (
               <form onSubmit={handleSubmit} noValidate>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
