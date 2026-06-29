@@ -99,6 +99,14 @@ export default function Contact() {
           color: rgba(255,255,255,0.25);
           font-style: italic;
         }
+        .contact-field:-webkit-autofill,
+        .contact-field:-webkit-autofill:hover,
+        .contact-field:-webkit-autofill:focus {
+          -webkit-text-fill-color: white;
+          -webkit-box-shadow: 0 0 0px 1000px #004444 inset;
+          box-shadow: 0 0 0px 1000px #004444 inset;
+          transition: background-color 5000s ease-in-out 0s;
+        }
         .contact-grid {
           display: grid;
           grid-template-columns: 42% 1fr;
