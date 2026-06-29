@@ -222,6 +222,7 @@ export default function Contact() {
                     padding: '56px 48px',
                     maxWidth: '440px',
                     width: '100%',
+                    textAlign: 'center',
                     animation: 'cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
                 >
