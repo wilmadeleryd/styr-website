@@ -7,8 +7,20 @@ import CaseMila from './pages/CaseMila'
 import Contact from './pages/Contact'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0)
+      return
+    }
+    const id = hash.slice(1)
+    const tryScroll = () => {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+    // Small delay to let the page render before scrolling
+    setTimeout(tryScroll, 80)
+  }, [pathname, hash])
   return null
 }
 

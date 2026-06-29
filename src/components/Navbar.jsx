@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   const isHome = pathname === '/'
   const transparent = isHome && !scrolled
@@ -28,7 +29,7 @@ export default function Navbar() {
     e.preventDefault()
     setMenuOpen(false)
     if (pathname !== '/') {
-      window.location.href = '/#tjanster'
+      navigate('/#tjanster')
     } else {
       document.getElementById('tjanster')?.scrollIntoView({ behavior: 'smooth' })
     }
@@ -38,7 +39,7 @@ export default function Navbar() {
     e.preventDefault()
     setMenuOpen(false)
     if (pathname !== '/') {
-      window.location.href = '/#om'
+      navigate('/#om')
     } else {
       document.getElementById('om')?.scrollIntoView({ behavior: 'smooth' })
     }
