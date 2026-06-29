@@ -92,16 +92,21 @@
 }
 
 @media (max-width: 768px) {
+  .accordion-content-inner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
   .accordion-content.open .accordion-content-inner {
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 48px;
   }
   .accordion-content-inner p {
-    padding-top: 8px;
+    padding-top: 0;
     padding-left: 0 !important;
   }
   .accordion-content-inner > div {
     padding-left: 0 !important;
-    margin-top: 28px !important;
+    margin-top: 32px !important;
   }
 }
 
