@@ -6,7 +6,7 @@ export const services = [
     num: '01',
     title: 'Plattformar, verktyg & produkter',
     body: 'Vi bygger digitala lösningar skräddarsydda för er verksamhet. Det kan vara en intern plattform för ert team, ett verktyg som löser ett specifikt problem, eller en digital produkt ni vill sälja vidare till era kunder.',
-    tags: ['Community-plattformar', 'Kundportaler', 'Bokningssystem', 'Interna verktyg', 'Medlemskap', 'Dashboards', 'CRM'],
+    tags: ['AI-verktyg', 'Integrationer', 'Kundportaler', 'Bokningssystem', 'Interna verktyg', 'CRM', 'Community-plattformar'],
   },
   {
     num: '02',
