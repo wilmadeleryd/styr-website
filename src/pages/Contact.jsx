@@ -185,7 +185,7 @@ export default function Contact() {
           {/* Höger: formulär */}
           <div ref={rightRef} style={{ paddingTop: '8px' }}>
             {status === 'sent' ? (
-              <div className="animate" style={{ paddingTop: '16px' }}>
+              <div style={{ paddingTop: '16px' }}>
                 <p
                   className="font-heading"
                   style={{ fontSize: '32px', color: 'white', fontWeight: 500, lineHeight: 1.3 }}
