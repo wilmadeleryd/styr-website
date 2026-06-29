@@ -188,12 +188,9 @@ export default function Contact() {
               <div className="animate" style={{ paddingTop: '16px' }}>
                 <p
                   className="font-heading"
-                  style={{ fontSize: '32px', color: 'white', fontWeight: 500, lineHeight: 1.2, marginBottom: '20px' }}
+                  style={{ fontSize: '32px', color: 'white', fontWeight: 500, lineHeight: 1.3 }}
                 >
-                  Tack – vi hör av oss.
-                </p>
-                <p className="font-body" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '16px', lineHeight: 1.7 }}>
-                  Vi återkommer per telefon eller mail inom kort.
+                  Tack för att ni hörde av er. Vi återkommer inom kort.
                 </p>
               </div>
             ) : (
