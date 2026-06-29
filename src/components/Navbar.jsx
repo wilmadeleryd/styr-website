@@ -202,8 +202,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Links — vertically centered */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '8%', gap: '32px' }}>
+        {/* Links — centered on full screen */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
           <a href="/#tjanster" onClick={scrollToTjanster} style={mobileLinkStyle}>
             Tjänster
           </a>
