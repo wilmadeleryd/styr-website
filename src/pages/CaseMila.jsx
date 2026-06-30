@@ -34,13 +34,13 @@ export default function CaseMila() {
         <meta property="og:title" content="Mila Workspace | Case study | STYR" />
         <meta property="og:description" content="Så byggde vi en hel community plattform åt Mila Workspace. Inloggning, bokningar, nyhetsbrev och medlemskatalog, allt på några veckor." />
         <meta property="og:url" content="https://styrmedia.se/case/mila" />
-        <meta property="og:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
+        <meta property="og:image" content="https://styrmedia.se/styr-og-image.jpg?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mila Workspace | Case study | STYR" />
         <meta name="twitter:description" content="Så byggde vi en hel community plattform åt Mila Workspace. Inloggning, bokningar, nyhetsbrev och medlemskatalog, allt på några veckor." />
-        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
+        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.jpg?v=2" />
       </Helmet>
 
       <div style={{ background: '#f5f0e8', minHeight: '100vh' }}>

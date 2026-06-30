@@ -138,13 +138,13 @@ export default function Contact() {
         <meta property="og:title" content="Kontakt | STYR" />
         <meta property="og:description" content="Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet." />
         <meta property="og:url" content="https://styrmedia.se/kontakt" />
-        <meta property="og:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
+        <meta property="og:image" content="https://styrmedia.se/styr-og-image.jpg?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Kontakt | STYR" />
         <meta name="twitter:description" content="Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet." />
-        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
+        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.jpg?v=2" />
       </Helmet>
 
       <div style={{ background: '#004444', minHeight: '100vh' }}>

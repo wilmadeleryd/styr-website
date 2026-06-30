@@ -6,13 +6,13 @@ const META = {
     title: 'STYR | Digitala verktyg, hemsidor och marknadsföring',
     description:
       'STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov.',
-    image: `${BASE}/styr-og-image.png?v=2`,
+    image: `${BASE}/styr-og-image.jpg?v=2`,
     url: `${BASE}/`,
   },
   '/kontakt': {
     title: 'Kontakt | STYR',
     description: 'Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet.',
-    image: `${BASE}/styr-og-image.png?v=2`,
+    image: `${BASE}/styr-og-image.jpg?v=2`,
     url: `${BASE}/kontakt`,
   },
   '/case/mila': {
