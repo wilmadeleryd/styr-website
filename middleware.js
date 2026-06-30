@@ -3,6 +3,7 @@ const BASE = 'https://styrmedia.se';
 
 const META = {
   '/': {
+    type: 'website',
     title: 'STYR | Digitala verktyg, hemsidor och marknadsföring',
     description:
       'STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov.',
@@ -10,12 +11,14 @@ const META = {
     url: `${BASE}/`,
   },
   '/kontakt': {
+    type: 'website',
     title: 'Kontakt | STYR',
     description: 'Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet.',
     image: `${BASE}/styr-og-image.jpg?v=2`,
     url: `${BASE}/kontakt`,
   },
   '/case/mila': {
+    type: 'article',
     title: 'Mila Workspace | Case study | STYR',
     description:
       'Så byggde vi en hel community plattform åt Mila Workspace. Inloggning, bokningar, nyhetsbrev och medlemskatalog, allt på några veckor.',
@@ -64,8 +67,9 @@ function replaceMeta(html, attr, name, value) {
   return html.replace(re, tag);
 }
 
-function patchHtml(html, { title, description, image, url }) {
+function patchHtml(html, { type, title, description, image, url }) {
   // Replace tags that already exist in the static index.html
+  html = replaceMeta(html, 'property', 'og:type', type);
   html = replaceMeta(html, 'property', 'og:title', title);
   html = replaceMeta(html, 'property', 'og:description', description);
   html = replaceMeta(html, 'property', 'og:image', image);
