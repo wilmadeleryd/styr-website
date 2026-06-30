@@ -162,13 +162,13 @@ export default function Home() {
         <meta property="og:title" content="STYR | Digitala verktyg, hemsidor och marknadsföring" />
         <meta property="og:description" content="STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov." />
         <meta property="og:url" content="https://styrmedia.se/" />
-        <meta property="og:image" content="https://styrmedia.se/styr-og-image.png" />
+        <meta property="og:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="STYR | Digitala verktyg, hemsidor och marknadsföring" />
         <meta name="twitter:description" content="STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov." />
-        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.png" />
+        <meta name="twitter:image" content="https://styrmedia.se/styr-og-image.png?v=2" />
       </Helmet>
 
       {/* Scroll driver: 200vh = 100vh hero + 100vh sticky window (80vh shrink + 20vh hold at min scale before Om enters) */}
