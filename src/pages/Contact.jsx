@@ -131,12 +131,12 @@ export default function Contact() {
       `}</style>
 
       <Helmet>
-        <title>Kontakt – STYR</title>
-        <meta name="description" content="Ta kontakt med STYR. Lämna namn och telefonnummer så ringer vi upp er. Vi hjälper er med digitala verktyg, hemsidor och marknadsföring." />
+        <title>Kontakt | STYR</title>
+        <meta name="description" content="Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet." />
         <link rel="canonical" href="https://styrmedia.se/kontakt" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Kontakt – STYR" />
-        <meta property="og:description" content="Ta kontakt med STYR. Lämna namn och telefonnummer så ringer vi upp er." />
+        <meta property="og:title" content="Kontakt | STYR" />
+        <meta property="og:description" content="Hör av er så pratar vi om vad ni behöver. Vi skräddarsyr varje projekt efter er verksamhet." />
         <meta property="og:url" content="https://styrmedia.se/kontakt" />
         <meta property="og:image" content="https://styrmedia.se/hero-bg.jpg" />
       </Helmet>

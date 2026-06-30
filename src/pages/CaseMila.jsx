@@ -27,12 +27,12 @@ export default function CaseMila() {
   return (
     <>
       <Helmet>
-        <title>Mila Workspace – Community-plattform – STYR</title>
-        <meta name="description" content="STYR byggde en skräddarsydd community-plattform för Mila Workspace i Göteborg med bokningar, medlemskatalog, nyhetsbrev och app-känsla på mobilen." />
+        <title>Mila Workspace | Case study | STYR</title>
+        <meta name="description" content="Så byggde vi en hel community plattform åt Mila Workspace. Inloggning, bokningar, nyhetsbrev och medlemskatalog, allt på några veckor." />
         <link rel="canonical" href="https://styrmedia.se/case/mila" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Mila Workspace – Community-plattform – STYR" />
-        <meta property="og:description" content="Från idé till en levande community på några veckor. En skräddarsydd plattform med bokningar, medlemskatalog och app-känsla." />
+        <meta property="og:title" content="Mila Workspace | Case study | STYR" />
+        <meta property="og:description" content="Så byggde vi en hel community plattform åt Mila Workspace. Inloggning, bokningar, nyhetsbrev och medlemskatalog, allt på några veckor." />
         <meta property="og:url" content="https://styrmedia.se/case/mila" />
         <meta property="og:image" content="https://styrmedia.se/mila-case.png" />
       </Helmet>

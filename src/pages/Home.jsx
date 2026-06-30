@@ -155,12 +155,12 @@ export default function Home() {
         }
       `}</style>
       <Helmet>
-        <title>STYR – Digital Partner</title>
-        <meta name="description" content="STYR hjälper små och medelstora företag med digitala verktyg, hemsidor och marknadsföring. Snabbare än en byrå, utan att du behöver anställa en utvecklare." />
+        <title>STYR | Digitala verktyg, hemsidor och marknadsföring</title>
+        <meta name="description" content="STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov." />
         <link rel="canonical" href="https://styrmedia.se/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="STYR – Digital Partner" />
-        <meta property="og:description" content="STYR hjälper små och medelstora företag med digitala verktyg, hemsidor och marknadsföring." />
+        <meta property="og:title" content="STYR | Digitala verktyg, hemsidor och marknadsföring" />
+        <meta property="og:description" content="STYR är små och medelstora företags högra hand när det kommer till digitala verktyg, hemsidor och marknadsföring. Smart, snabbt och skräddarsytt efter era behov." />
         <meta property="og:url" content="https://styrmedia.se/" />
         <meta property="og:image" content="https://styrmedia.se/hero-bg.jpg" />
       </Helmet>
