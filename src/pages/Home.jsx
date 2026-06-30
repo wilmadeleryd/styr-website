@@ -249,7 +249,7 @@ export default function Home() {
                 className="font-body hero-animate hero-d3 underline-link"
                 style={{ color: 'white', fontSize: '1rem' }}
               >
-                Låt oss prata →
+                Hör av er →
               </Link>
             </div>
           </div>
