@@ -66,6 +66,14 @@ export default function Home() {
           clip-path: inset(0 0% 0 100%);
         }
 
+        .hero-cta {
+          transition: opacity 0.15s ease;
+        }
+
+        .hero-cta:hover {
+          opacity: 0.85;
+        }
+
         @media (max-width: 768px) {
           /* Disable scroll-shrink animation on mobile — full-screen static hero */
           .hero-outer {
@@ -226,7 +234,7 @@ export default function Home() {
                 className="label mb-6 hero-animate hero-d0"
                 style={{ color: 'rgba(255,255,255,0.75)' }}
               >
-                PLATTFORMAR · HEMSIDOR · MARKNADSFÖRING
+                PLATTFORMAR · HEMSIDOR · ANNONSERING
               </p>
               <h1
                 className="font-heading font-medium leading-tight mb-4 hero-animate hero-d1"
@@ -252,8 +260,18 @@ export default function Home() {
               />
               <Link
                 to="/kontakt"
-                className="font-body hero-animate hero-d3 underline-link"
-                style={{ color: 'white', fontSize: '1rem' }}
+                className="font-body hero-animate hero-d3 hero-cta"
+                style={{
+                  display: 'inline-block',
+                  background: '#f5f0e8',
+                  color: '#004444',
+                  padding: '16px 36px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                }}
               >
                 Hör av er →
               </Link>
@@ -316,7 +334,7 @@ export default function Home() {
               }}
             >
               <p>
-                STYR hjälper små och medelstora företag med digitala verktyg, hemsidor och marknadsföring.
+                STYR hjälper små och medelstora företag med digitala verktyg, hemsidor och annonsering.
               </p>
               <p>
                 STYR drivs av Wilma Deleryd, med bakgrund från Handelshögskolan i Göteborg och erfarenhet av att arbeta med tillväxtbolag och entreprenörer.

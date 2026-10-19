@@ -1,113 +1,14 @@
-import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import ContactForm from '../components/ContactForm'
 import profilbild from '../assets/Profilbild-Wilma-Deleryd.jpg'
 
-const labelBase = {
-  display: 'block',
-  fontFamily: 'Inter, sans-serif',
-  fontSize: '11px',
-  fontWeight: 600,
-  letterSpacing: '0.1em',
-  textTransform: 'uppercase',
-  marginBottom: '10px',
-}
-
-function Field({ id, label, optional, error, children }) {
-  return (
-    <div>
-      <label htmlFor={id} style={{ ...labelBase, color: error ? 'rgba(255,120,120,0.9)' : '#ffffff' }}>
-        {label}
-        {optional && (
-          <span style={{ fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: '11px', opacity: 0.55, marginLeft: '6px' }}>
-            (valfritt)
-          </span>
-        )}
-        {error && (
-          <span style={{ fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: '11px', marginLeft: '6px' }}>
-            – obligatoriskt
-          </span>
-        )}
-      </label>
-      {children}
-    </div>
-  )
-}
-
 export default function Contact() {
-  const [form, setForm] = useState({ namn: '', telefon: '', foretag: '', mail: '', meddelande: '' })
-  const [errors, setErrors] = useState({ namn: false, telefon: false })
-  const [status, setStatus] = useState('idle') // idle | sending | sent | error
-
   const leftRef = useScrollAnimation()
-  const rightRef = useScrollAnimation()
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setForm(prev => ({ ...prev, [name]: value }))
-    if (errors[name]) setErrors(prev => ({ ...prev, [name]: false }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const newErrors = {
-      namn: !form.namn.trim(),
-      telefon: !form.telefon.trim(),
-    }
-    if (newErrors.namn || newErrors.telefon) {
-      setErrors(newErrors)
-      return
-    }
-    setStatus('sending')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      setStatus(res.ok ? 'sent' : 'error')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  const fieldBase = {
-    display: 'block',
-    width: '100%',
-    background: 'transparent',
-    border: 'none',
-    borderBottom: '1px solid rgba(255,255,255,0.35)',
-    paddingBottom: '14px',
-    paddingTop: '8px',
-    color: 'white',
-    fontFamily: 'Inter, sans-serif',
-    fontSize: '17px',
-    fontWeight: 400,
-    outline: 'none',
-    transition: 'border-bottom-color 0.2s ease',
-    borderRadius: 0,
-  }
-
-  const focusHandler = e => { e.target.style.borderBottomColor = 'rgba(255,255,255,0.85)' }
-  const blurHandler = (error) => e => {
-    e.target.style.borderBottomColor = error ? 'rgba(255,120,120,0.7)' : 'rgba(255,255,255,0.35)'
-  }
 
   return (
     <>
       <style>{`
-        .contact-field::placeholder {
-          color: rgba(255,255,255,0.45);
-          font-style: italic;
-        }
-        .contact-field:-webkit-autofill,
-        .contact-field:-webkit-autofill:hover,
-        .contact-field:-webkit-autofill:focus {
-          -webkit-text-fill-color: white;
-          -webkit-box-shadow: 0 0 0px 1000px #004444 inset;
-          box-shadow: 0 0 0px 1000px #004444 inset;
-          transition: background-color 5000s ease-in-out 0s;
-        }
         .contact-grid {
           display: grid;
           grid-template-columns: 42% 1fr;
@@ -119,14 +20,6 @@ export default function Contact() {
             grid-template-columns: 1fr;
             gap: 56px;
           }
-        }
-        @keyframes overlayIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        @keyframes cardIn {
-          from { opacity: 0; transform: translateY(16px); }
-          to   { opacity: 1; transform: translateY(0);    }
         }
       `}</style>
 
@@ -167,15 +60,21 @@ export default function Contact() {
                 fontWeight: 600,
                 color: '#ffffff',
                 lineHeight: 1,
-                margin: '0 0 48px 0',
+                margin: '0 0 32px 0',
               }}
             >
               Kontakt.
             </h1>
+            <p
+              className="font-body animate-fade"
+              style={{ color: 'rgba(255,255,255,0.8)', fontSize: '18px', lineHeight: 1.7, maxWidth: '440px', margin: 0, transitionDelay: '0.2s' }}
+            >
+              Berätta vad ni behöver hjälp med, så hör jag av mig. Det första samtalet är alltid kostnadsfritt.
+            </p>
             <div
               className="animate-fade"
               style={{
-                marginTop: '64px',
+                marginTop: '48px',
                 paddingTop: '32px',
                 borderTop: '1px solid rgba(153,210,210,0.2)',
                 transitionDelay: '0.35s',
@@ -223,187 +122,8 @@ export default function Contact() {
           </div>
 
           {/* Höger: formulär */}
-          <div ref={rightRef} style={{ paddingTop: '8px' }}>
-            {status === 'sent' && (
-              <div
-                onClick={() => { setStatus('idle'); setForm({ namn: '', telefon: '', foretag: '', mail: '', meddelande: '' }) }}
-                style={{
-                  position: 'fixed',
-                  top: 0, left: 0, right: 0, bottom: 0,
-                  background: 'rgba(0, 20, 20, 0.6)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 200,
-                  padding: '24px',
-                  animation: 'overlayIn 0.3s ease',
-                }}
-              >
-                <div
-                  onClick={e => e.stopPropagation()}
-                  style={{
-                    background: '#f5f0e8',
-                    padding: '56px 48px',
-                    maxWidth: '440px',
-                    width: '100%',
-                    textAlign: 'center',
-                    animation: 'cardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
-                >
-                  <p className="font-heading" style={{ fontSize: '1.75rem', color: '#004444', fontWeight: 600, lineHeight: 1.2, margin: '0 0 20px' }}>
-                    Roligt att ni hörde av er!
-                  </p>
-                  <p className="font-body" style={{ fontSize: '1rem', color: '#004444', fontWeight: 400, lineHeight: 1.7, margin: '0 0 40px' }}>
-                    Vi återkommer inom kort.
-                  </p>
-                  <button
-                    onClick={() => { setStatus('idle'); setForm({ namn: '', telefon: '', foretag: '', mail: '', meddelande: '' }) }}
-                    className="font-body"
-                    style={{
-                      background: 'transparent',
-                      color: '#004444',
-                      border: '1px solid #004444',
-                      borderRadius: 0,
-                      padding: '10px 28px',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                      transition: 'opacity 0.15s ease',
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
-                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-                  >
-                    Stäng
-                  </button>
-                </div>
-              </div>
-            )}
-            {status !== 'sent' && (
-              <form onSubmit={handleSubmit} noValidate>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-
-                  <Field id="namn" label="Namn" error={errors.namn}>
-                    <input
-                      id="namn"
-                      name="namn"
-                      type="text"
-                      value={form.namn}
-                      onChange={handleChange}
-                      autoComplete="name"
-                      className="contact-field"
-                      style={{
-                        ...fieldBase,
-                        borderBottomColor: errors.namn ? 'rgba(255,120,120,0.7)' : 'rgba(153,210,210,0.35)',
-                      }}
-                      onFocus={focusHandler}
-                      onBlur={blurHandler(errors.namn)}
-                    />
-                  </Field>
-
-                  <Field id="telefon" label="Telefon" error={errors.telefon}>
-                    <input
-                      id="telefon"
-                      name="telefon"
-                      type="tel"
-                      value={form.telefon}
-                      onChange={handleChange}
-                      autoComplete="tel"
-                      className="contact-field"
-                      style={{
-                        ...fieldBase,
-                        borderBottomColor: errors.telefon ? 'rgba(255,120,120,0.7)' : 'rgba(153,210,210,0.35)',
-                      }}
-                      onFocus={focusHandler}
-                      onBlur={blurHandler(errors.telefon)}
-                    />
-                  </Field>
-
-                  <Field id="foretag" label="Företag" optional>
-                    <input
-                      id="foretag"
-                      name="foretag"
-                      type="text"
-                      value={form.foretag}
-                      onChange={handleChange}
-                      autoComplete="organization"
-                      className="contact-field"
-                      style={fieldBase}
-                      onFocus={focusHandler}
-                      onBlur={blurHandler(false)}
-                    />
-                  </Field>
-
-                  <Field id="mail" label="Mail" optional>
-                    <input
-                      id="mail"
-                      name="mail"
-                      type="email"
-                      value={form.mail}
-                      onChange={handleChange}
-                      autoComplete="email"
-                      className="contact-field"
-                      style={fieldBase}
-                      onFocus={focusHandler}
-                      onBlur={blurHandler(false)}
-                    />
-                  </Field>
-
-                  <Field id="meddelande" label="Meddelande" optional>
-                    <textarea
-                      id="meddelande"
-                      name="meddelande"
-                      value={form.meddelande}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Berätta kort vad ni behöver hjälp med, eller hoppa över om ni bara vill bli kontaktade."
-                      className="contact-field"
-                      style={{ ...fieldBase, resize: 'none' }}
-                      onFocus={focusHandler}
-                      onBlur={blurHandler(false)}
-                    />
-                  </Field>
-
-                  {status === 'error' && (
-                    <p
-                      role="alert"
-                      className="font-body"
-                      style={{ color: 'rgba(255,150,150,0.9)', fontSize: '14px', lineHeight: 1.6 }}
-                    >
-                      Något gick fel. Prova igen eller maila direkt till{' '}
-                      <a href="mailto:wilma@styrmedia.se" style={{ color: 'white', textDecoration: 'underline' }}>
-                        wilma@styrmedia.se
-                      </a>
-                    </p>
-                  )}
-
-                  <div style={{ paddingTop: '8px' }}>
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-                      className="font-body"
-                      style={{
-                        background: 'transparent',
-                        border: 'none',
-                        padding: 0,
-                        color: status === 'sending' ? 'rgba(255,255,255,0.45)' : 'white',
-                        fontSize: '1rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.5)',
-                        paddingBottom: '2px',
-                        cursor: status === 'sending' ? 'not-allowed' : 'pointer',
-                        transition: 'opacity 0.15s ease',
-                      }}
-                      onMouseEnter={e => { if (status !== 'sending') e.currentTarget.style.opacity = '0.65' }}
-                      onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
-                    >
-                      {status === 'sending' ? 'Skickar...' : 'Skicka →'}
-                    </button>
-                  </div>
-
-                </div>
-              </form>
-            )}
+          <div style={{ paddingTop: '8px' }}>
+            <ContactForm />
           </div>
         </section>
       </div>

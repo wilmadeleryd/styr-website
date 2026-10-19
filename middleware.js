@@ -17,6 +17,30 @@ const META = {
     image: `${BASE}/styr-og-image.jpg?v=2`,
     url: `${BASE}/kontakt`,
   },
+  '/annonsering': {
+    type: 'website',
+    title: 'Annonsering på Google, Meta och TikTok | STYR',
+    description:
+      'Vi planerar, bygger och optimerar annonskampanjer på Google, Meta och TikTok för små och medelstora företag. Boka ett kostnadsfritt samtal.',
+    image: `${BASE}/styr-og-image.jpg?v=2`,
+    url: `${BASE}/annonsering`,
+  },
+  '/hemsidor': {
+    type: 'website',
+    title: 'Hemsidor med SEO- och AI-optimering | STYR',
+    description:
+      'Mobilanpassade hemsidor som syns på Google och i AI-sök som ChatGPT, Claude och Gemini. Byggda för att ge fler förfrågningar.',
+    image: `${BASE}/styr-og-image.jpg?v=2`,
+    url: `${BASE}/hemsidor`,
+  },
+  '/digitala-verktyg': {
+    type: 'website',
+    title: 'Digitala verktyg och plattformar | STYR',
+    description:
+      'Skräddarsydda plattformar, interna verktyg, kundportaler och AI-verktyg för små och medelstora företag. Snabbt och anpassat efter er verksamhet.',
+    image: `${BASE}/styr-og-image.jpg?v=2`,
+    url: `${BASE}/digitala-verktyg`,
+  },
   '/case/mila': {
     type: 'article',
     title: 'Mila Workspace | Case study | STYR',
@@ -28,7 +52,7 @@ const META = {
 };
 
 export const config = {
-  matcher: ['/', '/kontakt', '/case/mila'],
+  matcher: ['/', '/kontakt', '/annonsering', '/hemsidor', '/digitala-verktyg', '/case/mila'],
 };
 
 export default async function middleware(request) {

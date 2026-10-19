@@ -1,24 +1,28 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export const services = [
   {
     num: '01',
     title: 'Plattformar, verktyg & produkter',
+    to: '/digitala-verktyg',
     body: 'Vi bygger digitala lösningar skräddarsydda för er verksamhet. Det kan vara en intern plattform för ert team, ett verktyg som löser ett specifikt problem, eller en digital produkt ni vill sälja vidare till era kunder.',
     tags: ['AI-verktyg', 'Integrationer', 'Kundportaler', 'Bokningssystem', 'Interna verktyg', 'CRM', 'Community-plattformar'],
   },
   {
     num: '02',
     title: 'Hemsidor',
-    body: 'Vi bygger hemsidor som ser bra ut och driver affärer. Varje sajt är mobilanpassad, SEO-optimerad och anpassad för AI-sökning från grunden. Så att rätt personer hittar er, förstår vad ni gör och tar kontakt.',
-    tags: ['Landningssidor', 'Företagswebbar', 'E-handel', 'Bokningsflöden', 'Portfolios'],
+    to: '/hemsidor',
+    body: 'Vi bygger hemsidor som ser bra ut och driver affärer. Varje sajt är mobilanpassad och byggd för att synas, med SEO-optimering för Google och AI-optimering så att ni även hittas när kunder söker via ChatGPT, Claude, Gemini och Perplexity. Så att rätt personer hittar er, förstår vad ni gör och tar kontakt.',
+    tags: ['SEO-optimering', 'AI-optimering', 'Landningssidor', 'Företagswebbar', 'E-handel', 'Bokningsflöden', 'Portfolios'],
   },
   {
     num: '03',
-    title: 'Marknadsföring',
-    body: 'Vi sköter er närvaro på sociala medier löpande. Från varumärkesstrategi och innehållsproduktion till publicering och uppföljning.',
-    tags: ['Strategi', 'Sociala medier', 'Nyhetsbrev', 'Content'],
+    title: 'Annonsering',
+    to: '/annonsering',
+    body: 'Vi hjälper er att nå rätt kunder med digital marknadsföring som ger resultat. Vi planerar, bygger och optimerar annonskampanjer på Google, Meta och TikTok, och följer upp löpande så att varje krona i annonsbudgeten gör nytta.',
+    tags: ['Google Ads', 'Meta-annonsering', 'TikTok-annonsering', 'Kampanjstrategi', 'Annonsmaterial', 'Uppföljning'],
   },
 ]
 
@@ -28,7 +32,7 @@ export function ServicesAccordion() {
 
   return (
     <div ref={accordionRef}>
-      {services.map(({ num, title, body, tags }, index) => (
+      {services.map(({ num, title, to, body, tags }, index) => (
         <div
           key={num}
           className="animate-stagger"
@@ -108,6 +112,16 @@ export function ServicesAccordion() {
                     {tag}
                   </span>
                 ))}
+              </div>
+              <div style={{ paddingLeft: '64px', marginTop: '32px' }}>
+                <Link
+                  to={to}
+                  onClick={e => e.stopPropagation()}
+                  className="font-body"
+                  style={{ color: '#ffffff', fontSize: '1rem', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.5)', paddingBottom: '2px' }}
+                >
+                  Läs mer →
+                </Link>
               </div>
             </div>
           </div>
