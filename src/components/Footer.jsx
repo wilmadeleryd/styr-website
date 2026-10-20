@@ -16,12 +16,6 @@ const links = [
   { to: '/kontakt', label: 'KONTAKT' },
 ]
 
-const serviceLinks = [
-  { to: '/annonsering', label: 'Annonsering' },
-  { to: '/hemsidor', label: 'Hemsidor' },
-  { to: '/digitala-verktyg', label: 'Digitala verktyg' },
-]
-
 const labelStyle = {
   fontFamily: 'Inter, sans-serif',
   fontSize: '0.8rem',
@@ -51,21 +45,6 @@ export default function Footer() {
           >
             {label}
           </a>
-        ))}
-      </div>
-
-      {/* Tjänstesidor */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', marginTop: '24px' }}>
-        {serviceLinks.map(({ to, label }) => (
-          <Link
-            key={to}
-            to={to}
-            style={{ ...labelStyle, letterSpacing: 0, fontSize: '0.9rem', fontWeight: 400, textTransform: 'none', color: 'rgba(255,255,255,0.75)' }}
-            onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
-            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-          >
-            {label}
-          </Link>
         ))}
       </div>
 

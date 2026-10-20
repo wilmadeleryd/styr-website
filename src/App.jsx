@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import CaseMila from './pages/CaseMila'
 import Contact from './pages/Contact'
 import Tack from './pages/Tack'
+import AnnonseringLanding from './pages/AnnonseringLanding'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/case/mila" element={<CaseMila />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/tack" element={<Tack />} />
+          <Route path="/annonsering" element={<AnnonseringLanding />} />
           {Object.values(servicePages).map(page => (
             <Route key={page.path} path={page.path} element={<ServicePage key={page.path} page={page} />} />
           ))}

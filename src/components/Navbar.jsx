@@ -8,6 +8,8 @@ export default function Navbar() {
   const navigate = useNavigate()
 
   const isHome = pathname === '/'
+  // Landningssidan för annonserna: bara logga och boka-knapp, inga menylänkar.
+  const isLanding = pathname === '/annonsering'
   const transparent = isHome && !scrolled
 
   useEffect(() => {
@@ -52,7 +54,14 @@ export default function Navbar() {
   const linkColor = transparent ? 'rgba(255,255,255,0.9)' : '#006666'
   const linkActiveColor = transparent ? '#ffffff' : '#004444'
 
-  const headerStyle = menuOpen
+  const headerStyle = isLanding
+    ? {
+        backgroundColor: 'rgba(0,68,68,0.94)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+      }
+    : menuOpen
     ? {
         backgroundColor: '#004444',
         backdropFilter: 'none',
@@ -83,6 +92,39 @@ export default function Navbar() {
     textDecoration: 'none',
     cursor: 'pointer',
     lineHeight: 1.2,
+  }
+
+  if (isLanding) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50" style={headerStyle}>
+        <div className="px-6 md:px-[8%] flex items-center justify-between h-16">
+          <Link to="/" aria-label="STYR startsida">
+            <img src="/logo-white-trimmed.png" alt="STYR." style={{ height: '26px', width: 'auto', display: 'block' }} />
+          </Link>
+          <a
+            href="#boka"
+            onClick={e => { e.preventDefault(); document.getElementById('boka')?.scrollIntoView({ behavior: 'smooth' }) }}
+            className="font-body"
+            style={{
+              color: '#ffffff',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,0.35)',
+              borderRadius: 0,
+              padding: '9px 18px',
+              transition: 'border-color 0.2s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.8)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)' }}
+          >
+            Boka möte
+          </a>
+        </div>
+      </header>
+    )
   }
 
   return (

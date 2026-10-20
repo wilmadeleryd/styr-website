@@ -143,6 +143,14 @@ export function trackLead(tjanst) {
   if (window.ttq) window.ttq.track('SubmitForm', { content_category: tjanst })
 }
 
+// Bokat möte via Cal.com – skickas tillsammans med trackLead.
+export function trackSchedule() {
+  if (!ensureLoaded()) return
+  if (window.fbq) window.fbq('track', 'Schedule')
+  if (window.gtag) window.gtag('event', 'book_appointment')
+  if (window.ttq) window.ttq.track('Schedule')
+}
+
 // ─── Konvertering: formuläret markerar, tack-sidan rapporterar ───
 
 export const markLeadPending = (tjanst) => write('sessionStorage', LEAD_PENDING_KEY, tjanst || 'Okänd')

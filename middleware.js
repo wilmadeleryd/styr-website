@@ -19,9 +19,9 @@ const META = {
   },
   '/annonsering': {
     type: 'website',
-    title: 'Annonsering på Google, Meta och TikTok | STYR',
+    title: 'Annonsering på Google och Meta | STYR',
     description:
-      'Vi planerar, bygger och optimerar annonskampanjer på Google, Meta och TikTok för små och medelstora företag. Boka ett kostnadsfritt samtal.',
+      'Fler kunder. Mindre krångel. Vi sköter er annonsering på Google och Meta. Boka ett gratis möte på 30 minuter.',
     image: `${BASE}/styr-og-image.jpg?v=2`,
     url: `${BASE}/annonsering`,
   },
