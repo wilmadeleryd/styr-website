@@ -1,5 +1,5 @@
 import {
-  Bot, LayoutTemplate, MousePointerClick, Package, Search, Sparkles, Users, Wrench,
+  Layers, MousePointerClick, Package, PenTool, Search, Sparkles, Users, Workflow,
 } from 'lucide-react'
 
 // Innehåll för tjänstesidorna. Varje sida renderas av src/components/ServicePage.jsx.
@@ -19,15 +19,15 @@ export const servicePages = {
         'Mobilanpassade hemsidor som syns på Google och i AI-sök som ChatGPT, Claude och Gemini. Byggda för att ge fler förfrågningar.',
     },
     label: 'HEMSIDOR · SEO · AI-OPTIMERING',
-    heading: 'Hemsidor som syns, och som får folk att höra av sig.',
+    heading: 'Hemsidor som syns och som får kunder att höra av sig.',
     intro:
       'Vi bygger mobilanpassade hemsidor och landningssidor som ser bra ut och driver affärer. Varje sajt är SEO-optimerad för Google och AI-optimerad så att ni hittas även när kunder söker via ChatGPT, Claude, Gemini och Perplexity.',
-    cta: 'Boka ett kostnadsfritt samtal',
+    cta: 'Boka ett gratis möte',
     ctaNote: 'Kostnadsfritt och utan förpliktelser.',
     includesHeading: 'Det här hjälper vi er med.',
     includes: [
       {
-        icon: LayoutTemplate,
+        icon: PenTool,
         title: 'Design och struktur',
         body: 'En sajt som speglar ert varumärke och gör det enkelt för besökare att förstå vad ni gör och ta nästa steg.',
       },
@@ -58,9 +58,9 @@ export const servicePages = {
       omWilma,
       'Eftersom vi även arbetar med annonsering och digitala verktyg bygger vi sajter som är redo att ta emot trafik, mäta resultat och byggas vidare på.',
     ],
-    showCase: true,
-    formHeading: 'Berätta om er hemsida.',
-    formIntro: 'Oavsett om ni behöver en ny sajt eller vill förbättra den ni har, så hör jag av mig.',
+    showCase: false,
+    formHeading: 'Boka ett gratis intromöte.',
+    formIntro: 'Ett kostnadsfritt möte på 30 minuter där vi går igenom er hemsida och vad den behöver för att ge fler förfrågningar. Ingen förberedelse krävs från er sida.',
   },
 
   digitalaVerktyg: {
@@ -75,12 +75,12 @@ export const servicePages = {
     heading: 'Digitala verktyg byggda för just er verksamhet.',
     intro:
       'Vi bygger skräddarsydda plattformar, interna verktyg och digitala produkter. Det kan vara en kundportal, ett bokningssystem, ett AI-verktyg eller en produkt ni vill sälja vidare till era kunder.',
-    cta: 'Boka ett kostnadsfritt samtal',
+    cta: 'Boka ett gratis möte',
     ctaNote: 'Kostnadsfritt och utan förpliktelser.',
     includesHeading: 'Det här hjälper vi er med.',
     includes: [
       {
-        icon: Wrench,
+        icon: Layers,
         title: 'Interna verktyg',
         body: 'System som ersätter manuella rutiner, kalkylark och mejltrådar, så att ert team kan lägga tiden på rätt saker.',
       },
@@ -90,7 +90,7 @@ export const servicePages = {
         body: 'Inloggning, bokningar, medlemskap och community, samlat på ett ställe för era kunder eller medlemmar.',
       },
       {
-        icon: Bot,
+        icon: Workflow,
         title: 'AI-verktyg och integrationer',
         body: 'Vi kopplar ihop era system och bygger in AI där det sparar tid, till exempel för att sammanfatta, sortera eller svara.',
       },
@@ -112,7 +112,7 @@ export const servicePages = {
       'Vi bygger med moderna verktyg som gör att en första version kan vara klar på veckor i stället för månader, så att ni snabbt kan testa och bygga vidare.',
     ],
     showCase: true,
-    formHeading: 'Berätta vad ni vill bygga.',
-    formIntro: 'Beskriv kort problemet eller idén, så hör jag av mig.',
+    formHeading: 'Boka ett gratis intromöte.',
+    formIntro: 'Ett kostnadsfritt möte på 30 minuter där vi går igenom vad ni vill bygga och hur det kan lösas. Ingen förberedelse krävs från er sida.',
   },
 }

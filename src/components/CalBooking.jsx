@@ -9,6 +9,7 @@ const CAL_LINK = 'wilma-deleryd-v4t3g7/gratis-intromote'
 const BRAND = '#004444'
 
 let initialized = false
+let currentTjanst = 'Annonsering' // sätts av sidan som visar kalendern
 let lastBookingAt = 0
 
 // Officiell Cal.com-loader, omskriven utan minifiering.
@@ -48,7 +49,7 @@ function onBooked() {
   const now = Date.now()
   if (now - lastBookingAt < 10000) return
   lastBookingAt = now
-  trackLead('Annonsering – bokning')
+  trackLead(`${currentTjanst} – bokning`)
   trackSchedule()
 }
 
@@ -70,8 +71,10 @@ function init() {
   initialized = true
 }
 
-export default function CalBooking() {
+export default function CalBooking({ tjanst = 'Annonsering' }) {
   const ref = useRef(null)
+
+  useEffect(() => { currentTjanst = tjanst }, [tjanst])
 
   useEffect(() => {
     init()
