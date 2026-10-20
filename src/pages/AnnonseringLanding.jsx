@@ -16,6 +16,7 @@ const OG_IMAGE = 'https://styrmedia.se/styr-og-image.jpg?v=2'
 
 const GREEN = '#004444'
 const CREAM = '#f5f0e8'
+const SAND = '#ede6da' // lite mörkare beige för bokningsdelen
 const PINK = '#fdc6be'
 
 const benefits = [
@@ -24,7 +25,7 @@ const benefits = [
     body: 'Vi analyserar er marknad, målgrupp och konkurrenter och bygger en plan innan första annonsen går live.',
   },
   {
-    title: 'Annonser som konverterar.',
+    title: 'Annonser som säljer.',
     body: 'Anpassade för varje kanal och format, skapade för att stoppa scrollen och driva handling.',
   },
   {
@@ -184,7 +185,7 @@ export default function AnnonseringLanding() {
       </section>
 
       {/* Vad ni får */}
-      <section ref={benefitsRef} className="al-wrap al-section" style={{ background: '#ffffff', paddingTop: '120px', paddingBottom: '120px' }}>
+      <section ref={benefitsRef} className="al-wrap al-section" style={{ background: CREAM, paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="al-benefits">
           {benefits.map(({ title, body }, index) => (
             <div key={title} className="al-benefit animate-stagger" style={{ '--stagger-index': index }}>
@@ -204,7 +205,7 @@ export default function AnnonseringLanding() {
           className="font-heading animate-fade"
           style={{ fontSize: 'clamp(1.2rem, 1.8vw, 1.45rem)', lineHeight: 1.5, color: GREEN, maxWidth: '760px', margin: '64px 0 0', transitionDelay: '0.3s' }}
         >
-          Ni har en partner genom hela processen, från rådgivning och strategi till färdiga kampanjer och löpande optimering.
+          Vi är er partner genom hela processen, från rådgivning och strategi till färdiga kampanjer och löpande optimering.
         </p>
       </section>
 
@@ -213,7 +214,7 @@ export default function AnnonseringLanding() {
         id="boka"
         ref={bookingRef}
         className="al-wrap al-section"
-        style={{ background: CREAM, paddingTop: '120px', paddingBottom: '120px', scrollMarginTop: '40px' }}
+        style={{ background: SAND, paddingTop: '120px', paddingBottom: '120px', scrollMarginTop: '40px' }}
       >
         <div className="al-booking">
           <div>
