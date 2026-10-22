@@ -98,7 +98,6 @@ export default function AnnonseringLanding() {
           width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: 20px;
           object-fit: cover; object-position: center 15%; display: block;
         }
-        .al-avatar { display: none; }
 
         .al-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
         .al-benefit { border-top: 1px solid rgba(2,49,40,0.18); padding-top: 28px; }
@@ -115,8 +114,8 @@ export default function AnnonseringLanding() {
 
         @media (max-width: 900px) {
           .al-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 120px; padding-bottom: 72px; gap: 0; }
-          .al-figure { display: none !important; }
-          .al-avatar { display: flex; }
+          /* Porträttet hamnar under knappen och behåller samma storlek som på dator */
+          .al-figure { align-items: flex-start !important; margin-top: 56px !important; }
           .al-benefits, .al-booking { grid-template-columns: 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
@@ -168,12 +167,6 @@ export default function AnnonseringLanding() {
             <p className="font-body" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', margin: '18px 0 0', letterSpacing: '0.01em' }}>
               30 minuter · Inga förpliktelser
             </p>
-          </div>
-          <div className="al-avatar hero-animate hero-d3" style={{ alignItems: 'center', gap: '14px', marginTop: '40px' }}>
-            <img src={profilbild} alt="" style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 12%' }} />
-            <span className="font-body" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>
-              Wilma Deleryd, grundare av STYR
-            </span>
           </div>
         </div>
         <figure className="al-figure hero-animate hero-d2" style={{ margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
